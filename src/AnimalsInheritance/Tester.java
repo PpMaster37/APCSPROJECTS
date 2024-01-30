@@ -1,4 +1,5 @@
 package AnimalsInheritance;
+//David Tsang
 
 public class Tester {
     public static void main(String[] args){
@@ -10,11 +11,13 @@ public class Tester {
         pet.walk();
         pet.action();
         pet.makeSound();
-        System.out.println(pet);
         petTwo.displayInfo();
         petTwo.makeSound();
         petTwo.walk();
         petThree.makeSound();
         petThree.displayInfo();
+        System.out.println(pet.toString());
+        System.out.println(petTwo.toString());
+        System.out.println(petThree.toString());
     }
 }

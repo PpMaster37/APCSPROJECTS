@@ -1,5 +1,5 @@
 package AnimalsInheritance;
-
+//David Tsang
 public class Fox extends Mammal{
     private String breed;
     private String name;

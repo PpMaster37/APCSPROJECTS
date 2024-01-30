@@ -1,5 +1,5 @@
 package AnimalsInheritance;
-
+//David Tsang
 public class Mammal extends Animal{
     protected int numberOfLegs;
     public Mammal(String species,int legs){
@@ -15,6 +15,6 @@ public class Mammal extends Animal{
 
     @Override
     public String toString() {
-        return super.toString();
+        return species;
     }
 }

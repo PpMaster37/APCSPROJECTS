@@ -1,5 +1,5 @@
 package AnimalsInheritance;
-
+//David Tsang
 public class Animal {
     protected String species;
     public Animal(String spec){
@@ -16,6 +16,6 @@ public class Animal {
 
     @Override
     public String toString() {
-        return super.toString();
+        return species;
     }
 }
