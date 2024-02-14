@@ -1,5 +1,5 @@
 import java.util.*;
-public class Tester {
+public class Tester  {
     public static void main(String[] args) {
         MyArrayList A = new MyArrayList();
         Random ran = new Random();
