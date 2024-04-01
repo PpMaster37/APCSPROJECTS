@@ -18,6 +18,6 @@ public class BinarySearchTester {
         months.add("September");
         months.add("February");
         months.add("March");
-        System.out.println( searcher.searchMonths(months,"December"));;
+        System.out.println(searcher.binarySearch(searcher.sortMonths(months),"February"));
     }
 }
