@@ -8,11 +8,15 @@ import java.util.Scanner;
 public class Bank {
     private String name;
     private String address;
-    private int totalBalance;
     private int interestRate;
-    private int loanInterest;
     private HashSet<BankAccount> accounts;
     private ArrayList<CCard> creditCards;
+    public Bank(int interestRate, String address, String name){
+        accounts = new HashSet<>();
+        this.interestRate = interestRate;
+        this.address = address;
+        this.name = name;
+    }
 
     public void createAccount(){
         System.out.println("What type of account, Checking or Savings:");
@@ -25,7 +29,7 @@ public class Bank {
             for (BankAccount account : accounts) {
                 count++;
             }
-            BankAccount checkAccount = new CheckingAccount(count,scrTwo.nextLine());
+            BankAccount checkAccount = new CheckingAccount(count,scrTwo.nextLine(),this, LocalDateTime.now());
             accounts.add(checkAccount);
         } else if(accType.equals("Save")){
             int count = 0;
@@ -34,7 +38,7 @@ public class Bank {
             for (BankAccount account : accounts) {
                 count++;
             }
-            BankAccount saveAccount = new SavingsAccount(count,scrTwo.nextLine(),this, LocalDateTime.now());
+            BankAccount saveAccount = new SavingsAccount(count,scrTwo.nextLine(),this, LocalDateTime.now(),1);
             accounts.add(saveAccount);
         }
     }
@@ -49,12 +53,10 @@ public class Bank {
             return determineAcc(scr.nextLine());
         }
     }
-    public void createCreditCard(){
-        System.out.println("What tier card: ");
-        Scanner scr = new Scanner(System.in);
-        CCard credCard = new CCard(scr.nextInt());
-        System.out.println("Please set a pin:");
-        credCard.changePin(1111,scr.nextInt());
+    public void createCreditCard(int tier, int pin, String name){
+        CCard credCard = new CCard(tier, this, name);
+        credCard.changePin(1111,pin);
+        creditCards.add(credCard);
     }
     public ArrayList<BankAccount> getSortedAccountList(HashSet<BankAccount> accounts){
         ArrayList<BankAccount> sortedList = new ArrayList<>(accounts);
@@ -72,6 +74,17 @@ public class Bank {
         }
         return result;
     }
+
+    public int getInterestRate() {
+        return interestRate;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getAddress(){
+        return address;
+    }
+
     public boolean searchForAccount(BankAccount acc){
         return true;
     }

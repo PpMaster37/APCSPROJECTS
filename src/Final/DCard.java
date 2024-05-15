@@ -1,10 +1,15 @@
 package Final;
 
+import java.util.ArrayList;
+
 public class DCard implements Card{
     private CheckingAccount linkedAcc;
+    private ArrayList<String> cardActivities;
     private int pin;
+    private String name;
     public DCard(CheckingAccount cA){
         linkedAcc = cA;
+        name = linkedAcc.name;
     }
     public void use(int n, int p){
         if(p!=pin){
@@ -14,6 +19,7 @@ public class DCard implements Card{
         } else {
             linkedAcc.withdraw(n);
             String str = n + "withdrawn from account through card, Date:" + java.time.LocalDateTime.now();
+            cardActivities.add(str);
             linkedAcc.activities.add(str);
         }
     }
@@ -32,5 +38,8 @@ public class DCard implements Card{
         } else {
             System.out.println("Wrong pin");
         }
+    }
+    public ArrayList<String> getActivities(){
+        return cardActivities;
     }
 }

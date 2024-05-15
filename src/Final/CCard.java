@@ -8,7 +8,9 @@ public class CCard implements Card{
     private ArrayList<String> activities;
     private int borrow;
     private int balance;
-    public CCard(int t){
+    private String name;
+    private Bank parentBank;
+    public CCard(int t, Bank bank, String n){
         switch (t){
             case 1: borrow = 500;
             break;
@@ -21,6 +23,8 @@ public class CCard implements Card{
             case 5: borrow = 100000;
             break;
         }
+        parentBank = bank;
+        name = n;
     }
     public void use(int n, int p){
         if(p!=pin){
@@ -48,5 +52,8 @@ public class CCard implements Card{
         } else{
             balance += n;
         }
+    }
+    public ArrayList<String> getActivities(){
+        return activities;
     }
 }
