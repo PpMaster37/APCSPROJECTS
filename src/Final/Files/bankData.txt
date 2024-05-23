@@ -3,8 +3,8 @@ STARTPHRASE ~~~name here~~~address here~~~36
 STARTPHRASE ~~~new name~~~new adress W gaming~~~12
 STARTPHRASE ~~~asdk;j;fjkjk;skj here~~~akdsnkjasm here~~~53
 <ACCOUNTS
+CHECK ~~~2367~~~asdjf;k~~~10743~~~36~~~~8~OneActivityLol~8~anotheronelol~8~500deposited into account directly, Date:2024-05-23T00:14:19.351800~~~name here~~~23,5,2024~~~20,4,1990
 SAVE ~~~132~~~name~~~2343~~~36~~~~8~OneActivityLol~8~anotheronelol~~~name here~~~10,2,1993~~~20,4,1990~~~10~~~1~~~2
-CHECK ~~~2367~~~asdjf;k~~~23671~~~36~~~~8~OneActivityLol~8~anotheronelol~~~name here~~~20,4,1990~~~10,2,1993
 <CARDS
 C ~~~my name~~~name here~~~0~~~0~~~1324~~~~8~Initial creation
 C ~~~name~~~name here~~~0~~~0~~~3132~~~~8~OneActivityLol~8~anotheronelol

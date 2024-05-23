@@ -20,11 +20,12 @@ public class WithdrawFrame {
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setSize(500,500);
 
-        JPanel panel = new JPanel();
+        JPanel panel = new JPanel(new GridLayout(0,1,0,1));
         JLabel label = new JLabel("Enter withdraw amount below");
         JTextField depositField = new JTextField();
         JButton depositButton = new JButton("Withdraw");
         JButton cancelButton = new JButton("Cancel");
+        depositField.setEditable(true);
 
         panel.add(label);
         panel.add(depositField);
@@ -34,6 +35,7 @@ public class WithdrawFrame {
                 account.withdraw(Integer.parseInt(depositField.getText()));
                 dataPersist.updateDatabase();
                 dataPersist.updateSets();
+                frame.dispose();
             }
         });
         cancelButton.addActionListener(new ActionListener() {

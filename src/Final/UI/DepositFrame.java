@@ -18,9 +18,10 @@ public class DepositFrame {
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setSize(500,500);
 
-        JPanel panel = new JPanel();
+        JPanel panel = new JPanel(new GridLayout(0,1,0,1));
         JLabel label = new JLabel("Enter deposit amount below");
         JTextField depositField = new JTextField();
+        depositField.setEditable(true);
         JButton depositButton = new JButton("Deposit");
         JButton cancelButton = new JButton("Cancel");
 
@@ -32,6 +33,7 @@ public class DepositFrame {
                 account.deposit(Integer.parseInt(depositField.getText()));
                 dataPersist.updateDatabase();
                 dataPersist.updateSets();
+                frame.dispose();
             }
         });
         cancelButton.addActionListener(new ActionListener() {

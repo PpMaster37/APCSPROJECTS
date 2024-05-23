@@ -24,12 +24,28 @@ public class AccountFrame {
 
         JPanel panel = new JPanel();
         JPanel buttonPanel = new JPanel(new FlowLayout());
+        JButton depositButton = new JButton("Deposit");
+        JButton withdrawButton = new JButton("Withdraw");
         JButton closeButton = new JButton("Close");
         JLabel statement = new JLabel();
 
         StatementWriter statementWriter = new StatementWriter();
         statementWriter.writeStatement(account);
         statement.setText(statementWriter.getCurrentStatement());
+
+        depositButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DepositFrame depositFrame = new DepositFrame(account, dataPersist);
+            }
+        });
+        withdrawButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                WithdrawFrame withdrawFrame = new WithdrawFrame(account, dataPersist);
+            }
+        });
+
 
         closeButton.addActionListener(new ActionListener() {
             @Override
@@ -60,6 +76,8 @@ public class AccountFrame {
             buttonPanel.add(addDCard);
         }
 
+        buttonPanel.add(depositButton);
+        buttonPanel.add(withdrawButton);
         panel.add(statement);
         frame.add(buttonPanel, BorderLayout.EAST);
         frame.add(panel, BorderLayout.CENTER);
