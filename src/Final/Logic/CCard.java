@@ -1,15 +1,16 @@
-package Final;
+package Final.Logic;
 
 import java.util.ArrayList;
 
 public class CCard implements Card{
     private int tier;
     private int pin = 1111;
-    private ArrayList<String> activities;
+    private ArrayList<String> activities = new ArrayList<>();
     private int borrow;
     private int balance;
     private String name;
     private Bank parentBank;
+    private String type = "C";
     public CCard(int t, Bank bank, String n){
         switch (t){
             case 1: borrow = 500;
@@ -55,5 +56,40 @@ public class CCard implements Card{
     }
     public ArrayList<String> getActivities(){
         return activities;
+    }
+    public static CCard devCreateCCard(int t, Bank bank, String n, int balance, ArrayList<String> activities, int pin){
+        CCard card = new CCard(t, bank, n);
+        card.balance = balance;
+        card.activities = activities;
+        card.pin = pin;
+        return card;
+    }
+    public boolean checkPin(int p) {
+        return p == pin;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getType(){
+        return type;
+    }
+    public String getBankName(){
+        return parentBank.getName();
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public int getBorrow() {
+        return borrow;
+    }
+
+    public int getPin() {
+        return pin;
+    }
+
+    public int getTier() {
+        return tier;
     }
 }

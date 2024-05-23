@@ -1,7 +1,6 @@
-package Final;
+package Final.Logic;
 
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.ArrayList;
 
 public class BankAccount {
@@ -13,6 +12,7 @@ public class BankAccount {
     protected LocalDateTime lastUpdated;
     private final LocalDateTime creationDate;
     protected Bank parentBank;
+    public String type = "";
     public BankAccount(int aN, String n, Bank bank, LocalDateTime date){
         accountNumber = aN;
         name = n;
@@ -59,5 +59,34 @@ public class BankAccount {
     }
     public LocalDateTime getCreationDate(){
         return creationDate;
+    }
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public String getBankName(){
+        return parentBank.getName();
+    }
+    public int getInterestRate(){
+        return parentBank.getInterestRate();
+    }
+    public String getLastUpdated(){
+        String day = String.valueOf(lastUpdated.getDayOfMonth());
+        day += ",";
+        day += String.valueOf(lastUpdated.getMonthValue());
+        day += ",";
+        day += String.valueOf(lastUpdated.getYear());
+        return day;
+    }
+    public String getCreation(){
+        String day = String.valueOf(creationDate.getDayOfMonth());
+        day += ",";
+        day += String.valueOf(creationDate.getMonthValue());
+        day += ",";
+        day += String.valueOf(creationDate.getYear());
+        return day;
     }
 }

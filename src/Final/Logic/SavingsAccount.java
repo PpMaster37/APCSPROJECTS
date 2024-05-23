@@ -1,4 +1,4 @@
-package Final;
+package Final.Logic;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -13,6 +13,7 @@ public class SavingsAccount extends BankAccount{
         maxWithdrawals = max;
         withdrawCount = 0;
         lastAccessMonth = LocalDateTime.now().getMonthValue();
+        type = "S";
     }
     public void withdraw(int n){
         if(n>balance){
@@ -33,5 +34,26 @@ public class SavingsAccount extends BankAccount{
             String str = n + "withdrawn from account directly, Date:" + java.time.LocalDateTime.now();
             activities.add(str);
         }
+    }
+    public static SavingsAccount devCreateSA(int aN, String n, Bank bank, LocalDateTime date, int max,
+                                             ArrayList<String> act, LocalDateTime lastUp, int count,
+                                             int last, int bal, int iR){
+        SavingsAccount account = new SavingsAccount(aN, n, bank, date, max);
+        account.activities = act;
+        account.lastUpdated = lastUp;
+        account.lastAccessMonth = last;
+        account.withdrawCount = count;
+        account.balance = bal;
+        account.interestRate = iR;
+        return account;
+    }
+    public int getMaxWithdrawals(){
+        return maxWithdrawals;
+    }
+    public int getWithdrawCount(){
+        return withdrawCount;
+    }
+    public int getLastAccessMonth(){
+        return lastAccessMonth;
     }
 }

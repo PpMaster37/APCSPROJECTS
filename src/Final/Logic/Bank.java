@@ -1,4 +1,4 @@
-package Final;
+package Final.Logic;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ public class Bank {
     private String address;
     private int interestRate;
     private HashSet<BankAccount> accounts;
-    private ArrayList<CCard> creditCards;
+    private ArrayList<CCard> creditCards = new ArrayList<>();
     public Bank(int interestRate, String address, String name){
         accounts = new HashSet<>();
         this.interestRate = interestRate;
@@ -58,7 +58,7 @@ public class Bank {
         credCard.changePin(1111,pin);
         creditCards.add(credCard);
     }
-    public ArrayList<BankAccount> getSortedAccountList(HashSet<BankAccount> accounts){
+    public ArrayList<BankAccount> getSortedAccountList(){
         ArrayList<BankAccount> sortedList = new ArrayList<>(accounts);
         ArrayList<BankAccount> result = new ArrayList<>();
         for(int i = 0; i<sortedList.size();i++){
@@ -87,5 +87,15 @@ public class Bank {
 
     public boolean searchForAccount(BankAccount acc){
         return true;
+    }
+    public void devAddAcc(BankAccount account){
+        this.accounts.add(account);
+    }
+    public void devAddCCard(CCard card){
+        this.creditCards.add(card);
+    }
+    public static Bank devCreate(String name, String address, int iR){
+        Bank bank = new Bank(iR,address,name);
+        return bank;
     }
 }
